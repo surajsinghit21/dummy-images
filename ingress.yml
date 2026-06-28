@@ -14,6 +14,14 @@ spec:
   - http:
       paths:
 
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: netflix-app
+            port:
+              number: 3000
+
       - paths: /users
         pathType: Prefix
         backend:

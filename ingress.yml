@@ -22,7 +22,7 @@ spec:
             port:
               number: 3000
 
-      - paths: /users
+      - path: /users
         pathType: Prefix
         backend:
           service:
@@ -30,7 +30,7 @@ spec:
             port:
               number: 80
 
-      - paths: /orders
+      - path: /orders
         pathType: Prefix
         backend:
           service:
@@ -38,7 +38,7 @@ spec:
             port:
               number: 80
 
-      - paths: /products
+      - path: /products
         pathType: Prefix
         backend:
           service:
@@ -46,7 +46,7 @@ spec:
             port:
               number: 80
 
-      - paths: /payment
+      - path: /payment
         pathType: Prefix
         backend:
           service:
@@ -54,7 +54,7 @@ spec:
             port:
               number: 80
 
-      - paths: /inventory
+      - path: /inventory
         pathType: Prefix
         backend:
           service:

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  namespace: dummy-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: payment
+
+  template:
+    metadata:
+      labels:
+        app: payment
+
+    spec:
+      containers:
+      - name: payment
+
+        image: hashicorp/http-echo
+
+        args:
+        - "-text=Payment Service"
+
+        ports:
+        - containerPort: 5678

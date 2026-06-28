@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: inventory
+  namespace: dummy-app
+  
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: inventory
+
+  template:
+    metadata:
+      labels:
+        app: inventory
+
+    spec:
+      containers:
+      - name: inventory
+
+        image: hashicorp/http-echo
+
+        args:
+        - "-text=Inventory Service"
+
+        ports:
+        - containerPort: 5678

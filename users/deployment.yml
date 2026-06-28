@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users
+  namespace: dummy-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: users
+
+  template:
+    metadata:
+      labels:
+        app: users
+    
+    spec:
+      containers:
+        - name: users
+          image: hashicorp/http-echo
+          args:
+          - "-text=Users Service"
+
+          ports:
+          - containerPort:5678

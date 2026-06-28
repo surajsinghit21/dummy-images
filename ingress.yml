@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata
+  name: enterprise-Ingress
+  namespace: dummy-app
+  annotation:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+
+spec:
+  ingressClassName: alb
+
+  rules:
+  - http:
+      paths:
+
+      - paths: /users
+        pathType: Prefix
+        backend:
+          service:
+            name: users-service
+            port:
+              number: 80
+
+      - paths: /orders
+        pathType: Prefix
+        backend:
+          service:
+            name: orders-service
+            port:
+              number: 80
+
+      - paths: /products
+        pathType: Prefix
+        backend:
+          service:
+            name: products-service
+            port:
+              number: 80
+
+      - paths: /payment
+        pathType: Prefix
+        backend:
+          service:
+            name: payment-service
+            port:
+              number: 80
+
+      - paths: /inventory
+        pathType: Prefix
+        backend:
+          service:
+            name: inventory-service
+            port:
+              number: 80

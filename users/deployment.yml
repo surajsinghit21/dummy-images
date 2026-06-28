@@ -18,10 +18,10 @@ spec:
     
     spec:
       containers:
-        - name: users
-          image: hashicorp/http-echo
-          args:
-          - "-text=Users Service"
+      - name: users
+        image: hashicorp/http-echo
+        args:
+        - "-text=Users Service"
 
-          ports:
-          - containerPort:5678
+        ports:
+        - containerPort:5678
